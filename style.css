@@ -1,0 +1,228 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  /* background-color: black; */
+}
+/* ---------------------------------------------- */
+.container {
+  height: 400px;
+  width: 300px;
+  box-sizing: border-box;
+  /* background: #e5a5f065; */
+  /* border: 1px solid black; */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.box-cap {
+  border: solid;
+  height: 40px;
+  width: 180px;
+  /* background: rgb(218, 142, 231); */
+  border-radius: 10px;
+
+  box-shadow: 0px 5px 5px black;
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  bottom: 190px;
+}
+.box-body {
+  border: solid;
+  height: 160px;
+  width: 160px;
+  /* background: #da8ee7; */
+  border-radius: 10px;
+
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.648);
+  position: absolute;
+  bottom: 40px;
+
+  display: flex;
+  justify-content: center;
+  transition: 2s;
+}
+.ribbon {
+  height: 100%;
+  width: 30%;
+  /* background: #ff0000; */
+}
+.top-ribbon {
+  position: absolute;
+  bottom: 230px;
+  /* border: solid; */
+  height: 40px;
+  width: 120px;
+  display: flex;
+  z-index: 1;
+}
+.left {
+  height: 95%;
+  width: 49%;
+  background: red;
+  border: solid;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 200px;
+  border-bottom-left-radius: 150px;
+}
+.right {
+  height: 95%;
+  width: 49%;
+  background: red;
+  border: solid;
+  border-top-right-radius: 60px;
+  border-top-left-radius: 200px;
+  border-bottom-right-radius: 150px;
+}
+
+.trigger {
+  border: solid white;
+  color: white;
+  position: absolute;
+  bottom: 0;
+}
+
+/* .box-body:active  */
+.trigger:active ~ .box-body {
+  animation: shake 0.3s linear 0.2s infinite;
+}
+.trigger:active~.box-cap ,.trigger:active~.top-ribbon
+/* .box-body:active ~ .box-cap  */ {
+  animation: shakeMoveUp 0.5s linear 0.2s 1;
+  animation-fill-mode: forwards;
+}
+@keyframes shake {
+  50% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(2px);
+  }
+}
+@keyframes shakeMoveUp {
+  0% {
+    transform: translate(0, 0);
+    rotate: 0deg;
+  }
+  10% {
+    transform: translate(-10px, -5px);
+  }
+  20% {
+    transform: translate(10px, -10px);
+  }
+  30% {
+    transform: translate(-10px, -15px);
+  }
+  40% {
+    transform: translate(10px, -20px);
+  }
+  50% {
+    transform: translate(-10px, -25px);
+  }
+  60% {
+    transform: translate(10px, -30px);
+  }
+  70% {
+    transform: translate(-10px, -35px);
+  }
+  80% {
+    transform: translate(10px, -40px);
+  }
+  90% {
+    transform: translate(-10px, -45px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, -60px);
+    rotate: -170deg;
+    bottom: 30px;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/* ---------------------------------------------- */
+
+.wish-strip {
+  position: relative;
+  height: 50px;
+  width: 350px;
+  /* border: 1px solid rgb(222, 218, 218); */
+  display: flex;
+  text-align: center;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  margin: 10px;
+}
+.wish-strip div {
+  height: 100%;
+  width: calc(100% / 13);
+  /* color: azure; */
+  font-size: 25px;
+  font-weight: 600;
+  border: inherit;
+  display: grid;
+  place-content: center;
+}
+#back {
+  position: absolute;
+  z-index: -1;
+  background: linear-gradient(
+    to right,
+    rgba(231, 125, 255, 0.872),
+    rgba(255, 46, 46, 0.826)
+  );
+  /* animation: wish 5s linear infinite; */
+}
+@keyframes wish {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 323.0769px;
+  }
+}
+/* ------------------------------------------------- */
+.box-wish {
+  height: 150px;
+  width: 150px;
+  /* background: rgba(255, 132, 132, 0.655); */
+  z-index: -1;
+  position: absolute;
+  bottom: 45px;
+  display: grid;
+  place-content: center;
+}
+.box-wish #wish {
+  height: 70px;
+  width: 70px;
+
+  /* scale: 3.5; */
+  /* transform: translateY(-55px); */
+}
+.trigger:active ~ .box-wish #wish {
+  animation: wishing 1s ease-out 1 forwards;
+}
+
+@keyframes wishing {
+  0% {
+    transform: translateY(0);
+    scale: 1;
+  }
+  100% {
+    transform: translateY(-53px);
+    scale: 3.5;
+  }
+}
