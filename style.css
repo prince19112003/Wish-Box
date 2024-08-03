@@ -3,6 +3,7 @@
   padding: 0;
   font-family: sans-serif;
 }
+
 body {
   height: 100vh;
   width: 100vw;
@@ -11,14 +12,17 @@ body {
   align-items: center;
   flex-direction: column;
   box-sizing: border-box;
-  /* background-color: black; */
+  /* background-color: rgb(1, 1, 30); */
+  background: whitesmoke;
+  overflow: hidden;
 }
+
 /* ---------------------------------------------- */
 .container {
   height: 400px;
   width: 300px;
   box-sizing: border-box;
-  /* background: #e5a5f065; */
+  /* background: #000000; */
   /* border: 1px solid black; */
   position: relative;
   display: flex;
@@ -26,28 +30,30 @@ body {
   align-items: center;
   flex-direction: column;
 }
+
 .box-cap {
   border: solid;
   height: 40px;
   width: 180px;
-  /* background: rgb(218, 142, 231); */
-  border-radius: 10px;
+  background: red;
+  border-radius: 15px;
 
-  box-shadow: 0px 5px 5px black;
+  box-shadow: 0px 5px rgba(44, 42, 42, 0.753);
   position: absolute;
 
   display: flex;
   justify-content: center;
   bottom: 190px;
 }
+
 .box-body {
   border: solid;
   height: 160px;
   width: 160px;
-  /* background: #da8ee7; */
-  border-radius: 10px;
+  background: #ff0000;
+  border-radius: 15px;
 
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.648);
+  box-shadow: 0 10px 5px rgba(0, 0, 0, 0.426);
   position: absolute;
   bottom: 40px;
 
@@ -55,11 +61,13 @@ body {
   justify-content: center;
   transition: 2s;
 }
+
 .ribbon {
   height: 100%;
   width: 30%;
-  /* background: #ff0000; */
+  background: yellow;
 }
+
 .top-ribbon {
   position: absolute;
   bottom: 230px;
@@ -69,82 +77,119 @@ body {
   display: flex;
   z-index: 1;
 }
+
 .left {
   height: 95%;
   width: 49%;
-  background: red;
-  border: solid;
+  background: yellow;
+  border: 2px solid black;
   border-top-left-radius: 60px;
   border-top-right-radius: 200px;
   border-bottom-left-radius: 150px;
 }
+
 .right {
   height: 95%;
   width: 49%;
-  background: red;
-  border: solid;
+  background: yellow;
+  border: solid black 2px;
   border-top-right-radius: 60px;
   border-top-left-radius: 200px;
   border-bottom-right-radius: 150px;
 }
 
 .trigger {
-  border: solid white;
+  /* border: solid black; */
+  width: 130px;
   color: white;
+  font-size: 22px;
+  font-weight: 600;
+  height: 160px;
   position: absolute;
-  bottom: 0;
+  cursor: none;
+  bottom: 45px;
+  border-radius: 10px;
+  z-index: 1;
+  padding: 10px;
 }
 
 /* .box-body:active  */
 .trigger:active ~ .box-body {
-  animation: shake 0.3s linear 0.2s infinite;
+  animation: shake 0.3s linear 5;
 }
-.trigger:active~.box-cap ,.trigger:active~.top-ribbon
+
+.trigger:active~.box-cap,
+.trigger:active~.top-ribbon
+
 /* .box-body:active ~ .box-cap  */ {
-  animation: shakeMoveUp 0.5s linear 0.2s 1;
+  animation: shakeMoveUp 0.5s ease-out 0.2s 1;
   animation-fill-mode: forwards;
 }
+
 @keyframes shake {
-  50% {
-    transform: translateX(-2px);
+  25% {
+    transform: translateX(-3px);
+    scale: 0.95;
   }
+
   100% {
-    transform: translateX(2px);
+    transform: translateX(3px);
+    scale: 1.05;
   }
 }
+
 @keyframes shakeMoveUp {
   0% {
     transform: translate(0, 0);
     rotate: 0deg;
   }
+
   10% {
     transform: translate(-10px, -5px);
+    rotate: -17deg;
   }
+
   20% {
     transform: translate(10px, -10px);
+    rotate: -34deg;
   }
+
   30% {
     transform: translate(-10px, -15px);
+    rotate: -51deg;
   }
+
   40% {
     transform: translate(10px, -20px);
+    rotate: -68deg;
   }
+
   50% {
     transform: translate(-10px, -25px);
+    rotate: -85deg;
   }
+
   60% {
     transform: translate(10px, -30px);
+    rotate: -102deg;
   }
+
   70% {
     transform: translate(-10px, -35px);
+    rotate: -119deg;
   }
+
   80% {
     transform: translate(10px, -40px);
+    rotate: -136deg;
   }
+
   90% {
     transform: translate(-10px, -45px);
+    rotate: -153deg;
     opacity: 1;
   }
+
   100% {
     transform: translate(0, -60px);
     rotate: -170deg;
@@ -153,12 +198,13 @@ body {
     visibility: hidden;
   }
 }
+
 /* ---------------------------------------------- */
 
 .wish-strip {
   position: relative;
   height: 50px;
-  width: 350px;
+  width: 100vw;
   /* border: 1px solid rgb(222, 218, 218); */
   display: flex;
   text-align: center;
@@ -166,63 +212,230 @@ body {
   box-sizing: border-box;
   margin: 10px;
 }
+
 .wish-strip div {
   height: 100%;
-  width: calc(100% / 13);
-  /* color: azure; */
-  font-size: 25px;
-  font-weight: 600;
+  width: calc(100% / 14);
+  color: whitesmoke;
+  font-size: 30px;
+  font-weight: 800;
   border: inherit;
   display: grid;
   place-content: center;
 }
+
 #back {
   position: absolute;
   z-index: -1;
-  background: linear-gradient(
+  width: 10%;
+  /* background: linear-gradient(
     to right,
-    rgba(231, 125, 255, 0.872),
+    rgba(255, 0, 0, 0.872),
     rgba(255, 46, 46, 0.826)
-  );
-  /* animation: wish 5s linear infinite; */
+  ); */
+  background: red;
+  animation: wish 3s linear infinite;
+  border-top: 2px solid #060606;
+  border-bottom: 2px solid #060606;
+  box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.833);
 }
+
 @keyframes wish {
   0% {
     left: 0;
+    /* scale:1.5 */
   }
+
   100% {
-    left: 323.0769px;
+    /* left: 323.0769px; */
+    left: 100%;
+    /* scale: 1.5; */
   }
 }
+
 /* ------------------------------------------------- */
 .box-wish {
   height: 150px;
   width: 150px;
-  /* background: rgba(255, 132, 132, 0.655); */
+  /* background: rgba(255, 132, 132, 0.855); */
   z-index: -1;
   position: absolute;
   bottom: 45px;
-  display: grid;
-  place-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.box-wish #wish {
-  height: 70px;
-  width: 70px;
 
-  /* scale: 3.5; */
-  /* transform: translateY(-55px); */
+.box-wish img {
+  height: 60px;
+  width: 70px;
+  position: absolute;
 }
+
+.box-wish .pics {
+  width: 50px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.54);
+  /* -3px -3px rgba(0, 0, 0, 0.54); */
+  border-radius: 5px;
+}
+
+/* ---------------------------------------------------------- */
+/* ---------------------------------------------------------- */
+/* ---------------------------------------------------------- */
+/* -------------img1----------------------- */
+
+.trigger:active ~ .box-wish #img1 {
+  animation: img1-pics-throw 0.8s ease-out 1 forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes img1-pics-throw {
+  0% {
+    transform: translate(-22px, -37px);
+    scale: 0.9;
+  }
+
+  20% {
+    transform: translate(-44px, -75px);
+    scale: 1;
+  }
+
+  40% {
+    transform: translate(-66px, -113px);
+    scale: 1.2;
+  }
+
+  80% {
+    transform: translate(-88px, -150px);
+    scale: 1.3;
+  }
+
+  100% {
+    transform: translate(-110px, -90px);
+    scale: 1.5;
+  }
+}
+
+/* -----------img2-------------------- */
+.trigger:active ~ .box-wish #img2 {
+  animation: img2-pics-throw 0.6s ease-out 1 forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes img2-pics-throw {
+  0% {
+    transform: translate(-22px, -40px);
+    scale: 0.9;
+  }
+
+  20% {
+    transform: translate(-44px, -85px);
+    scale: 1;
+  }
+
+  40% {
+    transform: translate(-66px, -130px);
+    scale: 1.2;
+  }
+
+  80% {
+    transform: translate(-88px, -110px);
+    scale: 1.3;
+  }
+
+  100% {
+    transform: translate(-110px, 0px);
+    scale: 1.5;
+  }
+}
+
+/* -----------3rd------------------------- */
+.trigger:active ~ .box-wish #img3 {
+  animation: img3-pics-throw 0.8s ease-out 1 forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes img3-pics-throw {
+  0% {
+    transform: translate(22px, -37px);
+    scale: 0.9;
+  }
+
+  20% {
+    transform: translate(44px, -75px);
+    scale: 1;
+  }
+
+  40% {
+    transform: translate(66px, -113px);
+    scale: 1.2;
+  }
+
+  80% {
+    transform: translate(88px, -150px);
+    scale: 1.3;
+  }
+
+  100% {
+    transform: translate(110px, -90px);
+    scale: 1.5;
+  }
+}
+
+/* -----------img4--------------------- */
+.trigger:active ~ .box-wish #img4 {
+  animation: img4-pics-throw 0.6s ease-out 1 forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes img4-pics-throw {
+  0% {
+    transform: translate(22px, -40px);
+    scale: 0.9;
+  }
+
+  20% {
+    transform: translate(44px, -85px);
+    scale: 1;
+  }
+
+  40% {
+    transform: translate(66px, -130px);
+    scale: 1.2;
+  }
+
+  80% {
+    transform: translate(88px, -110px);
+    scale: 1.3;
+  }
+
+  100% {
+    transform: translate(110px, 0px);
+    scale: 1.5;
+  }
+}
+
+/* -------------------------------------- */
+
 .trigger:active ~ .box-wish #wish {
   animation: wishing 1s ease-out 1 forwards;
+  animation-delay: 1.2s;
 }
 
 @keyframes wishing {
   0% {
     transform: translateY(0);
-    scale: 1;
+    scale: 0.1;
   }
+
   100% {
-    transform: translateY(-53px);
-    scale: 3.5;
+    transform: translateY(-45px);
+    scale: 5;
   }
+}
+
+p {
+  font-weight: 800;
+  font-size: larger;
+  text-align: center;
 }
