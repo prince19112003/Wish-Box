@@ -427,7 +427,7 @@ body {
 
 .trigger:active ~ .box-wish #wish {
   animation: wishing 1s ease-out 1 forwards;
-  animation-delay: 1.2s;
+  animation-delay: 0.9s;
 }
 
 @keyframes wishing {
